@@ -16,6 +16,14 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import ru.mail.polis.sort.BubbleSort;
+import ru.mail.polis.sort.InsertionSort;
+import ru.mail.polis.sort.ImprovedInsertionSort;
+import ru.mail.polis.sort.ShellSort;
+import ru.mail.polis.sort.MergeSort;
+import ru.mail.polis.sort.MemoryOptimisedMergeSort;
+import ru.mail.polis.sort.QuickSort;
+import ru.mail.polis.sort.RandomPivot3PartQuickSort;
+import ru.mail.polis.sort.BinaryQuickSort;
 import ru.mail.polis.sort.Helper;
 
 @RunWith(value = Parameterized.class)
@@ -34,6 +42,8 @@ public class Tester {
     @Parameterized.Parameters(name = "{index}")
     public static Collection<int[]> data() {
         return Arrays.asList(new int[][]{
+            null,
+            {},
             {0},
             {0, 0, 0, 0},
             {4, 3, 2, 1},
@@ -61,4 +71,38 @@ public class Tester {
         Assert.assertTrue(isSorted(BubbleSort.sort(array)));
     }
 
+    @Test
+    public void test02_checkInsertionSort() throws IOException {
+        Assert.assertTrue(isSorted(InsertionSort.sort(array)));
+    }
+
+    @Test
+    public void test03_checkImprovedInsertionSort() throws IOException {
+        Assert.assertTrue(isSorted(ImprovedInsertionSort.sort(array)));
+    }
+
+    @Test
+    public void test04_checkShellSort() throws IOException {
+        Assert.assertTrue(isSorted(ShellSort.sort(array)));
+    }
+
+    @Test
+    public void test05_checkMergeSort() throws IOException {
+        Assert.assertTrue(isSorted(MergeSort.sort(array)));
+    }
+
+    @Test
+    public void test06_checkMemoryOptimisedMergeSort() throws IOException {
+        Assert.assertTrue(isSorted(MemoryOptimisedMergeSort.sort(array)));
+    }
+
+    @Test
+    public void test07_checkQuickSort() throws IOException {
+        Assert.assertTrue(isSorted(QuickSort.sort(array)));
+    }
+
+    @Test
+    public void test08_checkRandomPivot3PartQuickSort() throws IOException {
+        Assert.assertTrue(isSorted(RandomPivot3PartQuickSort.sort(array)));
+    }
 }

@@ -19,8 +19,7 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
-import ru.mail.polis.sort.BubbleSort;
-import ru.mail.polis.sort.Helper;
+import ru.mail.polis.sort.*;
 
 /**
  * Created by Nechaev Mikhail
@@ -41,10 +40,9 @@ public class AverageTimeBench {
 
     @Setup(value = Level.Trial)
     public void setUpTrial() {
-        data = new int[10][100];
+        data = new int[10][];
         for (int i = 0; i < 10; i++) {
-            //define arrays here
-            data[i] = Helper.gen(100);
+            data[i] = Helper.genSortedDESC(10000);
         }
     }
 
@@ -57,6 +55,46 @@ public class AverageTimeBench {
     @Benchmark
     public void measureBubbleSort() {
         BubbleSort.sort(curr);
+    }
+
+    @Benchmark
+    public void measureInsertionSort() {
+        InsertionSort.sort(curr);
+    }
+
+    @Benchmark
+    public void measureImprovedInsertionSort() {
+        ImprovedInsertionSort.sort(curr);
+    }
+
+    @Benchmark
+    public void measureShellSort() {
+        ShellSort.sort(curr);
+    }
+
+    @Benchmark
+    public void measureMergeSort() {
+        MergeSort.sort(curr);
+    }
+
+    @Benchmark
+    public void measureMemoryOptimisedMergeSort() {
+        MemoryOptimisedMergeSort.sort(curr);
+    }
+
+    @Benchmark
+    public void measureQuickSort() {
+        QuickSort.sort(curr);
+    }
+
+    @Benchmark
+    public void measureRandomPivot3PartQuickSort() {
+        MemoryOptimisedMergeSort.sort(curr);
+    }
+
+    @Benchmark
+    public void measureBinaryQuickSort() {
+        BinaryQuickSort.sort(curr);
     }
 
     public static void main(String[] args) throws RunnerException {

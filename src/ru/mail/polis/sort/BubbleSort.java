@@ -3,6 +3,9 @@ package ru.mail.polis.sort;
 public class BubbleSort {
 
     public static int[] sort(int a[]) {
+        if (a == null)
+            return new int[0];
+
         boolean wasSwap = true;
         int j = 0;
         while (wasSwap) {
