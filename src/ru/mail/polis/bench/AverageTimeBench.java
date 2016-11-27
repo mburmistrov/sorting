@@ -42,7 +42,7 @@ public class AverageTimeBench {
     public void setUpTrial() {
         data = new int[10][];
         for (int i = 0; i < 10; i++) {
-            data[i] = Helper.genSortedDESC(10000);
+            data[i] = Helper.genSortedDESC(1000);
         }
     }
 
@@ -52,7 +52,7 @@ public class AverageTimeBench {
         index = (index + 1) % 10;
     }
 
-    @Benchmark
+    /*@Benchmark
     public void measureBubbleSort() {
         BubbleSort.sort(curr);
     }
@@ -70,7 +70,7 @@ public class AverageTimeBench {
     @Benchmark
     public void measureShellSort() {
         ShellSort.sort(curr);
-    }
+    }*/
 
     @Benchmark
     public void measureMergeSort() {

@@ -42,7 +42,7 @@ public class Helper {
         return a;
     }
 
-    public static int[] genWorseCaseForMergeSort(int n) {
+    public static int[] genWorstCaseForMergeSort(int n) {
         int[] a = Helper.genSortedASC(n);
         Helper.worseCaseForMergeSortSeparate(a);
         return a;
@@ -84,6 +84,18 @@ public class Helper {
         for(j = 0; j < right.length; j++, i++) {
             a[i] = right[j];
         }
+    }
+
+    public static int[] genWorstCaseForQuickSort(int n){
+        int[] a = Helper.genSortedASC(n);
+        worstCaseForQuickSort(a);
+        return a;
+    }
+
+    public static void worstCaseForQuickSort(int[] a)
+    {
+        for (int i = 2; i < a.length;i++)
+            swap(a, i, i / 2);
     }
 
     public static int binarySearch(int[] a, int key, int right) {
